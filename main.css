@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+/* Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+}
+
+/* Body flexed */
+body {
+  background-image: linear-gradient(
+    to right top,
+    #f4f1bb,
+    #dceabb,
+    #c6e2bc,
+    #b5d9be,
+    #a7cfbe,
+    #95bdb2,
+    #85aba5,
+    #779997,
+    #5e7c7c,
+    #466061,
+    #2f4647,
+    #1a2d2f
+  );
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main game container */
+.container {
+  width: 70%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  grid-template-rows: repeat(2, 255px);
+  grid-row-gap: 10px;
+  grid-column-gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Rules panel start ............................................. */
+.rules {
+  grid-row: 1;
+  grid-column: 3;
+  width: 250px;
+  height: 250px;
+  outline: 2px solid #5ca4a9;
+  margin: 2px;
+  background-color: #91c1bc;
+}
+
+.rules p {
+  text-align: center;
+  background-color: #1a2d2f;
+  color: #e6ebe0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.info2 {
+  width: 230px;
+  height: 210px;
+  background-color: #91c1bc;
+  margin: 10px 0 0 10px;
+  padding: 10px 2px 0 2px;
+  outline: 2px solid #5ca4a9;
+}
+
+.info2 p {
+  padding: 0 5px;
+  background-color: #91c1bc;
+  color: #1a2d2f;
+  font-size: 0.7em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Information panel start ............................................. */
+.msg {
+  grid-row: 2;
+  grid-column: 3;
+  width: 250px;
+  height: 250px;
+  outline: 2px solid #5ca4a9;
+  margin: 2px;
+  background-color: #91c1bc;
+  opacity: 0.3;
+}
+
+.name p:first-child {
+  text-align: center;
+  background-color: #1a2d2f;
+  color: #e6ebe0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.info {
+  width: 230px;
+  height: 150px;
+  background-color: #91c1bc;
+  margin: 10px 0 0 10px;
+  padding: 10px 2px 0 2px;
+  outline: 2px solid #5ca4a9;
+}
+
+.info p {
+  padding: 0 5px;
+  background-color: #91c1bc;
+  color: #1a2d2f;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.btn2 {
+  width: 100%;
+  height: 50px;
+  margin: 21px 0;
+}
+
+.restart,
+.quit {
+  width: 100%;
+  background-color: #1a2d2f;
+  color: #e6ebe0;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-top: 2px solid #5ca4a9;
+  margin-bottom: 1px;
+}
+/* Information panel end .......................................................... */
+
+/* Dice roll start................................................................. */
+.roll {
+  grid-row: 1;
+  grid-column: 1;
+  width: 250px;
+  height: 250px;
+  margin: 2px;
+  outline: 2px solid #5ca4a9;
+  background-color: #91c1bc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+}
+
+.roll .dice {
+  padding-top: 49px;
+  padding-bottom: 45px;
+}
+
+.roll img {
+  width: 100px;
+  height: 100px;
+}
+
+.roll .button-div,
+#roll {
+  width: 100%;
+  height: 50px;
+  background-color: #1a2d2f;
+  color: #e6ebe0;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-top: 1px solid #5ca4a9;
+}
+/* Dice roll end .............................................................*/
+
+/* Play button start ....................................................... */
+.play {
+  grid-row: 1;
+  grid-column: 2;
+  width: 250px;
+  height: 250px;
+  outline: 2px solid #5ca4a9;
+  margin: 2px;
+}
+
+#playBtn {
+  width: 100%;
+  height: 100%;
+  background-color: #91c1bc;
+  color: #e6ebe0;
+  border: none;
+  font-size: 2.5em;
+}
+/* Play button end .................................................................... */
+
+/* Player 1 start ...................................................................... */
+.player1 {
+  grid-row: 2;
+  grid-column: 1;
+  width: 250px;
+  height: 250px;
+  background-color: #91c1bc;
+  outline: 2px solid #5ca4a9;
+  margin: 28px 2px;
+  opacity: 0.3;
+}
+/* player 1 end ........................................................................ */
+
+/* Player 2 start ...................................................................... */
+.player2 {
+  grid-row: 2;
+  grid-column: 2;
+  width: 250px;
+  height: 250px;
+  background-color: #91c1bc;
+  outline: 2px solid #5ca4a9;
+  margin: 28px 2px;
+  opacity: 0.3;
+}
+/* player 2 end ........................................................................ */
+.name1,
+.name2 {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  color: #e6ebe0;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #1a2d2f;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  margin: 34px 0;
+}
+
+.add1,
+.add2,
+.end1,
+.end2 {
+  width: 100%;
+  background-color: #1a2d2f;
+  color: #e6ebe0;
+  font-size: 0.9em;
+  font-weight: bold;
+  border: none;
+  border-top: 2px solid #5ca4a9;
+  margin-bottom: 1px;
+}
+
+.temp1,
+.temp2 {
+  width: 100px;
+  height: 100px;
+  background-color: #91c1bc;
+  color: #1a2d2f;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px 0 0 20px;
+  padding-top: 30px;
+  outline: 2px solid #5ca4a9;
+}
+
+.perm1,
+.perm2 {
+  width: 100px;
+  height: 100px;
+  background-color: #91c1bc;
+  color: #1a2d2f;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin: -100px 0 0 130px;
+  padding-top: 30px;
+  outline: 2px solid #5ca4a9;
+}
+
+/* Button Hovers */
+#roll:hover,
+#playBtn:hover,
+.restart:hover,
+.quit:hover,
+.end1:hover,
+.end2:hover,
+.add1:hover,
+.add2:hover {
+  background-color: #2a4b4d;
+  cursor: pointer;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dice game</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="play">
+        <button id="playBtn">Start Game</button>
+      </div>
+
+      <!-- Dice roll section -->
+      <section class="roll">
+        <div class="dice"></div>
+        <div class="button-div">
+          <button id="roll">Roll Dice</button>
+        </div>
+      </section>
+
+      <section class="player1">
+        <div class="name"><p>Player 1</p></div>
+        <div class="temp1">
+          <p></p>
+        </div>
+        <div class="perm1">
+          <p></p>
+        </div>
+        <div class="btn">
+          <button class="end1">End Session</button>
+          <button class="add1">Add score</button>
+        </div>
+      </section>
+      <section class="player2">
+        <div class="name"><p>Player 2</p></div>
+        <div class="temp2">
+          <p></p>
+        </div>
+        <div class="perm2">
+          <p></p>
+        </div>
+        <div class="btn">
+          <button class="end2">End Session</button>
+          <button class="add2">Add score</button>
+        </div>
+      </section>
+      <section class="rules">
+        <div class="name"><p>Rules</p></div>
+        <div class="info2">
+          <p>
+            The first player to have a score of 100 or over in the permanent
+            bank wins the game. A player will roll the dice and have the option
+            to either end the session, whereby the score in the temporary bank
+            gets added to the permanent bank and the next player continues. Or
+            they can add the score to the temporary bank. They can accumulate as
+            many dice scores as they want by continuing to roll the dice.
+            Unfortunately if the player rolls a 1, all the accumulated scores in
+            the temporary bank get wiped out and the session ends.
+          </p>
+        </div>
+      </section>
+      <section class="msg">
+        <div class="name"><p>Info</p></div>
+        <div class="info"><p></p></div>
+
+        <div class="btn2">
+          <button class="restart">Restart Game</button>
+          <button class="quit">Quit Game</button>
+        </div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
