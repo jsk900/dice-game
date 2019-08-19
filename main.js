@@ -208,7 +208,7 @@ rollDice.addEventListener('click', () => {
 
     msg.innerHTML = `<strong>${
       currentPlayer.name
-    }</strong> <br> you have rolled a ${dice} <br> and wiped out your Temporary score!`;
+    }</strong> <br> you have rolled a <strong>${dice}</strong> <br><br> and wiped out your Temporary score!`;
 
     //Delay message so it can be read....
     setTimeout(() => {
@@ -217,7 +217,7 @@ rollDice.addEventListener('click', () => {
   } else {
     msg.innerHTML = `<strong>${
       currentPlayer.name
-    } you have rolled a ${dice}.</strong> <br> Either accept the roll by clicking add or end the session.`;
+    } you have rolled a ${dice}</strong> <br><br> Either accept the roll by clicking add <br> or end the session.`;
     if (currentPlayer === player1Obj) {
       add1.disabled = false;
       end1.disabled = false;
