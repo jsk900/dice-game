@@ -74,12 +74,6 @@ let number = 0;
 let currentPlayer = {};
 let dice = 0;
 
-//Get random number between 1 - 6 and display on DOM
-const showDice = () => {
-  dice = getRandomIntInclusive(1, 6);
-  diceDiv.innerHTML = `<img src=${diceNumbers[dice]}>`;
-};
-
 //Initialize variables, and DOM controls to off until play button clicked
 const start = () => {
   showDice();
@@ -90,6 +84,10 @@ const start = () => {
   end1.disabled = true;
   add2.disabled = true;
   end2.disabled = true;
+  temp1.innerHTML = '';
+  perm1.innerHTML = '';
+  temp2.innerHTML = '';
+  perm2.innerHTML = '';
   rollDice.style = 'opacity: 0.3';
   rollDiv.style = 'opacity: 0.3';
   player1Dom.style = 'opacity: 0.3';
@@ -113,86 +111,6 @@ playBtn.addEventListener('click', e => {
     ? (player1Dom.style = 'opacity: 1')
     : (player2Dom.style = 'opacity: 1');
 });
-
-//Listen for player 1 add button click
-add1.addEventListener('click', () => {
-  player1Obj.addToTemp(dice);
-  temp1.innerHTML = `Temporary score ${player1Obj.tempBank}`;
-  add1.disabled = true;
-  rollDice.disabled = false;
-  msg.innerHTML = `<strong>${
-    currentPlayer.name
-  }</strong> <br> Please roll again`;
-});
-
-//Listen for player 2 add button click
-add2.addEventListener('click', () => {
-  player2Obj.addToTemp(dice);
-  temp2.innerHTML = `Temporary score ${player2Obj.tempBank}`;
-  add2.disabled = true;
-  rollDice.disabled = false;
-  msg.innerHTML = `<strong>${
-    currentPlayer.name
-  }</strong> <br> Please roll again`;
-});
-
-//Listen for player 1 end session
-end1.addEventListener('click', () => {
-  currentPlayer.addToPerm();
-  temp1.innerHTML = `Temporary score ${player1Obj.tempBank}`;
-  perm1.innerHTML = `Permanent score ${player1Obj.permBank}`;
-  rollDice.disabled = false;
-
-  if (currentPlayer.permBank >= 100) {
-    msg.innerHTML = `<strong>${
-      currentPlayer.name
-    }</strong> <br> Congratulations, You are a winner`;
-    msg.style = 'padding-top: 20px; transform: scale(1.1); color: orangered';
-    start();
-  } else {
-    changePlayer();
-  }
-});
-
-//Listen for player 2 end session
-end2.addEventListener('click', () => {
-  currentPlayer.addToPerm();
-  temp2.innerHTML = `Temporary score ${player2Obj.tempBank}`;
-  perm2.innerHTML = `Permanent score ${player2Obj.permBank}`;
-  rollDice.disabled = false;
-  if (currentPlayer.permBank >= 100) {
-    msg.innerHTML = `<strong>${
-      currentPlayer.name
-    }</strong> <br> Congratulations, You are a winner`;
-    start();
-  } else {
-    changePlayer();
-  }
-});
-
-const changePlayer = () => {
-  if (currentPlayer === player1Obj) {
-    currentPlayer = player2Obj;
-    msg.innerHTML = `<strong>${
-      currentPlayer.name
-    }</strong> <br> Please roll the dice`;
-    player2Dom.style = 'opacity: 1';
-    player1Dom.style = 'opacity: 0.3';
-    end1.disabled = true;
-    add1.disabled = true;
-    end2.disabled = false;
-  } else {
-    currentPlayer = player1Obj;
-    msg.innerHTML = `<strong>${
-      currentPlayer.name
-    }</strong> <br> Please roll the dice`;
-    player1Dom.style = 'opacity: 1';
-    player2Dom.style = 'opacity: 0.3';
-    end2.disabled = true;
-    add2.disabled = true;
-    end1.disabled = false;
-  }
-};
 
 //Listen for click on roll-dice button
 rollDice.addEventListener('click', () => {
@@ -230,14 +148,74 @@ rollDice.addEventListener('click', () => {
   }
 });
 
-//Restart game
-restart.addEventListener('click', () => {
-  msg.innerHTML = '';
-  start();
-});
+//Listen for player add button click
+const add = (button, tempBox, playerObj) => {
+  button.addEventListener('click', () => {
+    playerObj.addToTemp(dice);
+    tempBox.innerHTML = `Temporary score ${playerObj.tempBank}`;
+    button.disabled = true;
+    rollDice.disabled = false;
+    msg.innerHTML = `<strong>${
+      currentPlayer.name
+    }</strong> <br> Please roll again`;
+  });
+};
 
-//Quit game
-quit.addEventListener('click', () => window.close());
+const end = (button, tempBox, permBox, playerObj) => {
+  button.addEventListener('click', () => {
+    currentPlayer.addToPerm();
+    tempBox.innerHTML = `Temporary score ${playerObj.tempBank}`;
+    permBox.innerHTML = `Permanent score ${playerObj.permBank}`;
+    rollDice.disabled = false;
+
+    if (currentPlayer.permBank >= 100) {
+      msg.innerHTML = `<strong>${
+        currentPlayer.name
+      }</strong> <br> Congratulations, You are a winner`;
+      msg.style = 'padding-top: 20px; transform: scale(1.1); color: orangered';
+      start();
+    } else {
+      changePlayer();
+    }
+  });
+};
+
+//Listen for player 1 and player 2 add/end button clicks
+add(add1, temp1, player1Obj);
+add(add2, temp2, player2Obj);
+end(end1, temp1, perm1, player1Obj);
+end(end2, temp2, perm2, player2Obj);
+
+//Change player
+const changePlayer = () => {
+  if (currentPlayer === player1Obj) {
+    currentPlayer = player2Obj;
+    msg.innerHTML = `<strong>${
+      currentPlayer.name
+    }</strong> <br> Please roll the dice`;
+    player2Dom.style = 'opacity: 1';
+    player1Dom.style = 'opacity: 0.3';
+    end1.disabled = true;
+    add1.disabled = true;
+    end2.disabled = false;
+  } else {
+    currentPlayer = player1Obj;
+    msg.innerHTML = `<strong>${
+      currentPlayer.name
+    }</strong> <br> Please roll the dice`;
+    player1Dom.style = 'opacity: 1';
+    player2Dom.style = 'opacity: 0.3';
+    end2.disabled = true;
+    add2.disabled = true;
+    end1.disabled = false;
+  }
+};
+
+//Get random number between 1 - 6 and display on DOM
+const showDice = () => {
+  dice = getRandomIntInclusive(1, 6);
+  diceDiv.innerHTML = `<img src=${diceNumbers[dice]}>`;
+};
 
 //This function returns a random number
 const getRandomIntInclusive = (min, max) => {
@@ -246,3 +224,12 @@ const getRandomIntInclusive = (min, max) => {
   number = Math.floor(Math.random() * (max - min + 1)) + min;
   return number;
 };
+
+//Restart game
+restart.addEventListener('click', () => {
+  msg.innerHTML = '';
+  start();
+});
+
+//Quit game
+quit.addEventListener('click', () => window.close());
