@@ -155,13 +155,33 @@ body {
 }
 
 .roll .dice {
-  padding-top: 49px;
-  padding-bottom: 45px;
+  width: 120px;
+  padding: 49px 0 45px 10px;
 }
 
 .roll img {
   width: 100px;
   height: 100px;
+  animation: diceRoll 0.8s;
+  animation-direction: reverse;
+}
+
+@keyframes diceRoll {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(45deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(50deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(-360deg) scale(1);
+  }
 }
 
 .roll .button-div,
