@@ -130,7 +130,7 @@ rollDice.addEventListener('click', () => {
     //Delay message so it can be read....
     setTimeout(() => {
       changePlayer();
-    }, 5000);
+    }, 4000);
   } else {
     msg.innerHTML = `<strong>${
       currentPlayer.name
