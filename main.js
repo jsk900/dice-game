@@ -62,7 +62,6 @@ const end2 = document.querySelector('.end2');
 const player1Dom = document.querySelector('.player1');
 const player2Dom = document.querySelector('.player2');
 const restart = document.querySelector('.restart');
-const quit = document.querySelector('.quit');
 const name = document.querySelector('.name');
 const temp1 = document.querySelector('.temp1 p');
 const temp2 = document.querySelector('.temp2 p');
@@ -230,6 +229,3 @@ restart.addEventListener('click', () => {
   msg.innerHTML = '';
   start();
 });
-
-//Quit game
-quit.addEventListener('click', () => window.close());

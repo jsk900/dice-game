@@ -39,7 +39,7 @@ body {
   width: 70%;
   height: 80%;
   display: grid;
-  grid-template-columns: repeat(3, 250px);
+  grid-template-columns: repeat(3, 255px);
   grid-template-rows: repeat(2, 255px);
   grid-row-gap: 10px;
   grid-column-gap: 15px;
@@ -106,7 +106,7 @@ body {
 
 .info {
   width: 230px;
-  height: 150px;
+  height: 190px;
   background-color: #91c1bc;
   margin: 10px 0 0 10px;
   padding: 10px 2px 0 2px;
@@ -124,11 +124,10 @@ body {
 .btn2 {
   width: 100%;
   height: 50px;
-  margin: 21px 0;
+  margin: 5px 0;
 }
 
-.restart,
-.quit {
+.restart {
   width: 100%;
   background-color: #1a2d2f;
   color: #e6ebe0;
@@ -136,7 +135,6 @@ body {
   font-weight: bold;
   border: none;
   border-top: 2px solid #5ca4a9;
-  margin-bottom: 1px;
 }
 /* Information panel end .......................................................... */
 
@@ -193,7 +191,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #91c1bc;
-  color: #e6ebe0;
+  color: #1a2d2f;
   border: none;
   font-size: 2.5em;
 }
@@ -287,11 +285,11 @@ body {
 #roll:hover,
 #playBtn:hover,
 .restart:hover,
-.quit:hover,
 .end1:hover,
 .end2:hover,
 .add1:hover,
 .add2:hover {
   background-color: #2a4b4d;
+  color: #e6ebe0;
   cursor: pointer;
 }
